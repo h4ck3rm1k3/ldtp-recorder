@@ -106,12 +106,10 @@ class Recorder:
             'window:restyle',
             'window:shade',
             'window:unshade',
-            ]
-
+        ]
 
     def setOnActionCallback(self, callback):
         self._callback = callback
-
 
     def start(self):
         if not self._isRunning:
@@ -119,13 +117,11 @@ class Recorder:
             self._registry.registerEventListener(self._onEvent, *self._eventTypes)
             self._registry.start()
 
-
     def stop(self):
         if self._isRunning:
             self._isRunning = False
             self._registry.stop()
             self._registry.deregisterEventListener(self._onEvent, *self._eventTypes)
-
 
     def _onEvent(self, event):
         actionInfo = actions.getActionInfo(event)

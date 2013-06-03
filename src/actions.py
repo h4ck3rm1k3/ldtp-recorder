@@ -26,6 +26,7 @@ _RETURN_VALUE_FALSE = 0
 _RETURN_VALUE_TRUE = 1
 _RETURN_VALUE_LATER = 2
 
+
 class ActionInfo:
 
     def __init__(self, name=None, value=None, role=None, windowName=None, actionType=None):
@@ -57,11 +58,11 @@ def getActionInfo(event):
     @rtype: ActionInfo
     '''
     if event is None or event.source.getRole() in [
-                                                   Accessibility.ROLE_INVALID,
-                                                   Accessibility.ROLE_TERMINAL,
-                                                   Accessibility.ROLE_TOOL_TIP,
-                                                   Accessibility.ROLE_SCROLL_BAR,
-                                                   ]:
+        Accessibility.ROLE_INVALID,
+        Accessibility.ROLE_TERMINAL,
+        Accessibility.ROLE_TOOL_TIP,
+        Accessibility.ROLE_SCROLL_BAR,
+    ]:
         return None
     for name, obj in inspect.getmembers(sys.modules[__name__], inspect.isclass):
         if name not in ['AbstractAction', 'ActionInfo']:
@@ -344,7 +345,7 @@ class TextFieldAction(AbstractAction):
         name = helper.getNameByEvent(event)
         windowName = helper.getWindowName(event.source)
         role = event.source.getRole()
-        value = ldtp-helper.getTextFieldValue(windowName, name)
+        value = ldtp - helper.getTextFieldValue(windowName, name)
         actionInfo = ActionInfo(name=name, windowName=windowName, role=role, value=value)
         return actionInfo
 

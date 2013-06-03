@@ -8,6 +8,7 @@ ldtp-recorder
 See 'LICENSE' in the source distribution for more information.
 """
 
+
 class Context:
 
     _weAreTheBorg = {}
@@ -18,7 +19,6 @@ class Context:
             return
         self.__dict__['initWasHere'] = True
         self._init()
-
 
     def _init(self):
         ''' set to True to wait for the second CheckBox Event '''
@@ -43,7 +43,6 @@ class Context:
         self.menuItemValue = None
         self.menuItemWindowName = None
         self.resetMenuItem()
-
 
     def resetMenuItem(self):
         self.lastWasMenuItem = False

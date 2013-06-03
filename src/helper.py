@@ -25,7 +25,7 @@ def getWindows():
     reg = atspi.Registry()
     for i in range(0, reg.getDesktopCount()):
         desktop = reg.getDesktop(i)
-        for j in range (0, desktop.childCount):
+        for j in range(0, desktop.childCount):
             windows.append(desktop.getChildAtIndex(j))
     return windows
 
@@ -98,13 +98,13 @@ def _getWindow(accessible):
         return None
     role = accessible.getRole()
     roles = [
-             Accessibility.ROLE_ALERT,
-             Accessibility.ROLE_DIALOG,
-             Accessibility.ROLE_FILE_CHOOSER,
-             Accessibility.ROLE_FONT_CHOOSER,
-             Accessibility.ROLE_FRAME,
-             Accessibility.ROLE_WINDOW,
-             ]
+        Accessibility.ROLE_ALERT,
+        Accessibility.ROLE_DIALOG,
+        Accessibility.ROLE_FILE_CHOOSER,
+        Accessibility.ROLE_FONT_CHOOSER,
+        Accessibility.ROLE_FRAME,
+        Accessibility.ROLE_WINDOW,
+    ]
     if role in roles:
         return accessible
     parent = None

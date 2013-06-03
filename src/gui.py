@@ -33,16 +33,13 @@ class Gui:
 
         Gtk.main()
 
-
     def actionCallback(self, string):
         if 'ldtpRecorder' not in string:
             self.textView.get_buffer().insert_at_cursor(string + "\n")
 
-
     def onStartClick(self, toolButton):
         self.textView.get_buffer().insert_at_cursor("starting\n")
         Recorder().start()
-
 
     def onStopClick(self, toolButton):
         self.textView.get_buffer().insert_at_cursor("stopping\n")
