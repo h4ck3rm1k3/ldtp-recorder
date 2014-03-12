@@ -345,7 +345,7 @@ class TextFieldAction(AbstractAction):
         name = helper.getNameByEvent(event)
         windowName = helper.getWindowName(event.source)
         role = event.source.getRole()
-        value = ldtp - helper.getTextFieldValue(windowName, name)
+        value = ldtphelper.getTextFieldValue(windowName, name)
         actionInfo = ActionInfo(name=name, windowName=windowName, role=role, value=value)
         return actionInfo
 
